@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.AddProdutoView"
+             Title="{Binding TituloPaginaAddProduto}">
+
+    <!--MAIN CONTEINER GRID-->
+    <Grid VerticalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+
+        <!--IMAGE-->
+        <!--<Image 
+			Grid.Row="0"
+			Source="{Binding prod.produto.imagem}" 
+			Aspect="AspectFill" >
+        </Image> -->
+
+        <ff:CachedImage                                                
+            Source="{Binding prod.produto.imagem}"
+            CacheDuration="7">
+        </ff:CachedImage>
+
+        <!-- INFO DO PRODUTO -->
+        <StackLayout Grid.Row="1">
+            <StackLayout Padding="20,0,20,0" >
+
+                <Label 
+				    Text="{Binding prod.produto.nome}"
+				    FontSize ="30"
+					FontAttributes="Bold"
+					HorizontalOptions="Fill"
+					TextColor="{StaticResource ComplementColor}"
+			    />
+
+                <ScrollView>
+                    <Label 
+							Text="{Binding prod.produto.descricao}" 
+							HorizontalOptions="Fill"
+							/>
+                </ScrollView>
+
+            </StackLayout>
+        </StackLayout>
+
+        <!---ENTRADAS -->
+        <StackLayout Grid.Row="2">
+            <StackLayout Padding="20,0,20,0" >
+
+                <Entry Placeholder="Quantidade" Text="{Binding quantidade}"/>
+                <Entry Placeholder="Preço" Text="{Binding preco}"/>
+
+            </StackLayout>
+        </StackLayout>
+
+        <!---BOTAO -->
+        <Grid Padding="20,10,20,10" Grid.Row="3">
+            <Button Style="{DynamicResource PrimaryActionButtonStyle}" Text="Add Produto" Command="{Binding GoAtualizaPrateleiraCommand}"/>
+        </Grid>
+    </Grid>
+
+</ContentPage>

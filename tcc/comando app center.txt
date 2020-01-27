@@ -1,0 +1,2 @@
+appcenter test run uitest --app "esampaio/MMarket" --devices "esampaio/conjunto-para-teste" --app-path C:\GitHub\tcc\tcc\tcc.Android\bin\Debug\com.mmarket.apk   --test-series "teste-mmarket" --locale "en_US" --build-dir C:\GitHub\tcc\tcc\tcc.Android\bin\Debug
+

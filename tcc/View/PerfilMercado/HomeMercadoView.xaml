@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.HomeMercadoView">
+
+    <!-- ico da sacola -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="truck.png" Command="{Binding GoEntregasCommand}" Order="Primary"  Priority="0"/>
+    </ContentPage.ToolbarItems>
+
+    <RelativeLayout x:Name="Layout">
+
+        <!--     LABEL : VOCE POSSUI NOVOS PEDIDOS    -->
+        <Label Text="Você possui novos pedidos!" FontSize="18" TextColor="Black"
+               RelativeLayout.XConstraint="{ConstraintExpression  Type=RelativeToParent, Property=Width,  Factor=.19}"
+               RelativeLayout.YConstraint="{ConstraintExpression  Type=RelativeToParent, Property=Height, Factor=0.60}"
+               />
+        
+        <!--     IMAGEM LISTA DE PEDIDO    -->
+        <Image Source="Lista.png" 
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,  Factor=0.08}"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.30}"
+               
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}" 
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,  Property=Height, Factor=0.5}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GoPedidosCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+
+        <!--     CIRCULO VERMELHO    -->
+        <BoxView x:Name="Ball" BackgroundColor="Red" CornerRadius="100" HeightRequest="50" WidthRequest="50" 
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.6}"                
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.36}"/>
+
+        <!--     LABEL QUANTIDADE DE PEDIDOS    -->
+        <Label Text="{Binding QuantidadeDePedidos}" FontSize="25" FontAttributes="Bold" TextColor="Black" 
+               RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.65}"  
+               RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.368}"/>
+ 
+    </RelativeLayout>
+
+</ContentPage>

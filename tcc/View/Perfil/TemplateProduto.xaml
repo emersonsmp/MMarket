@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.Perfil.TemplateProduto"
+             
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             >
+    <Frame HeightRequest="250">
+        <StackLayout>
+            <ff:CachedImage Source="{Binding imagem}" CacheDuration="7">
+            </ff:CachedImage>
+
+            <StackLayout Padding="0,10,0,10">
+                <Label 
+			    Text="{Binding descricao, StringFormat='{0:F0}'}"
+			    FontSize ="9"
+			    HorizontalOptions="Fill"
+			    TextColor="#37474f"
+		    />
+
+                <Label 
+			    Text="{Binding nome}"
+			    FontSize ="16"
+			    FontAttributes="Bold"
+			    HorizontalOptions="Fill"
+			    TextColor="{StaticResource AccentColor}"
+			/>
+
+                <Label 
+			    Text="{Binding preco}"
+			    FontAttributes="Bold"
+			    FontSize ="14"
+			    HorizontalOptions="Fill"
+			/>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</ContentView>

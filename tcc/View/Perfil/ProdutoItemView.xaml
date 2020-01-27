@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.Perfil.ProdutoItemView"
+             Title="{Binding nome}">
+
+    <!-- ico da sacola -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="sacola.png" Clicked="GoSacola" Order="Primary"  Priority="0"/>
+    </ContentPage.ToolbarItems>
+
+    <!--MAIN CONTEINER GRID-->
+    <Grid VerticalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="15*" />
+        </Grid.RowDefinitions>
+
+        <!--PRODUCT IMAGE-->
+        <Image 
+			Grid.Row="0"
+			Source="{Binding imagem}" 
+			Aspect="AspectFill">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnImageTapped" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <!-- PRODUCT INFO -->
+        <StackLayout Grid.Row="1">
+
+            <!---TOOLBAR -->
+            <StackLayout
+					BackgroundColor="#f9f9f9" 
+					TranslationY="-6">
+
+                <Grid 
+						HeightRequest="30"
+						Padding="20,6,20,10" 
+						RowSpacing="0" 
+						ColumnSpacing="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout 
+							Orientation="Horizontal" 
+							HorizontalOptions="Start" 
+							VerticalOptions="Center">
+
+                        <Label 
+								Text="Preço" 
+								FontSize ="16"
+								TextColor ="{StaticResource AccentColor}"
+								FontAttributes="Bold"
+							/>
+
+                        <Label
+								Grid.Column="0"
+								Text="{Binding preco}"
+								FontSize ="16"
+								FontAttributes="Bold"
+								TextColor ="{StaticResource AccentColor}"
+								/>
+                    </StackLayout>
+
+                    <Label VerticalOptions="Center" FontSize="14" HorizontalOptions="End" Grid.Column="1" Grid.Row="0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="&#xf004; " ForegroundColor="{StaticResource AccentColor}"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </Grid>
+
+                <BoxView Style="{StaticResource Horizontal1ptLineStyle}" VerticalOptions="End"/>
+                <!-- ate aqui ok -->
+
+            </StackLayout>
+
+            <!---DESCRIPTION -->
+
+            <StackLayout Padding="20,0,20,0" >
+
+                <Label 
+						 Text="{Binding nome}"
+						 FontSize ="20"
+						 FontAttributes="Bold"
+						HorizontalOptions="Fill"
+						TextColor="{StaticResource ComplementColor}"
+						/>
+
+                <ScrollView>
+                    <Label 
+							Text="{Binding descricao}" 
+							HorizontalOptions="Fill"
+							/>
+                </ScrollView>
+
+                <Label 
+						Text="{Binding Manufacturer, StringFormat='BY {0:F0}'}"
+						FontSize ="12"
+						HorizontalOptions="Fill"
+						TextColor="#37474f"
+						/>
+
+            </StackLayout>
+
+        </StackLayout>
+        
+        <!-- QUANTIDADE ITEN E TOTAL -->
+        <StackLayout Grid.Row="2">
+            <Grid Padding="20,10,20,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Stepper x:Name="stepper" Minimum="0" Maximum="10" Grid.Row="0" Grid.Column="0" ValueChanged="ActionMudouValor"/>
+                <Entry x:Name="Quantidade" FontSize="24"  Grid.Row="0" Grid.Column="1" />
+                <Label Text="Total R$" FontSize="24" Grid.Row="1" Grid.Column="0" />
+                <Label x:Name="Total" FontSize="24" Grid.Row="1" Grid.Column="1" />
+            </Grid>
+        </StackLayout>
+
+        <!---BOTÃO COMPRAR -->
+        <Grid Padding="20,10,20,10" Grid.Row="3">
+            <Button Clicked="AddNoCarrinho" Style="{DynamicResource PrimaryActionButtonStyle}" Text="Add na Sacola"/>
+        </Grid>
+        
+    </Grid>
+
+</ContentPage>

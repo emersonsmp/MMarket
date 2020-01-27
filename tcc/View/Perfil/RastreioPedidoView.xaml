@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.Perfil.RastreioPedidoView" Title="Pedidos">
+    <ContentPage.Content>
+        <ScrollView>
+            <ListView Margin="10" ItemsSource="{Binding ListadePedidos}" RowHeight="150" x:Name="listView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="5" Margin="1,5,1,5" HasShadow="True">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70*" />
+                                        <ColumnDefinition Width="30*" />
+                                    </Grid.ColumnDefinitions>
+
+                                   <!--NOME MERCADO -->
+                                    <Label Text="{Binding mercado}" Grid.Row="0" Grid.Column="0" FontSize="20" TextColor="Red" FontAttributes="Bold"/>
+                                    
+                                    <!--TOTAL DO PEDIDO -->
+                                    <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Spacing="0">
+                                        <Label Text="R$" FontSize="16"/>
+                                        <Label Text="{Binding total}" FontSize="16"/>
+                                    </StackLayout>
+                                    
+                                    <!-- STATUS DO PEDIDO -->
+                                    <Label Text="{Binding status}" Grid.Row="2"  Grid.Column="0" FontSize="16"/>
+                                    
+                                    <!-- BOTAO PARA AVALIAR -->
+                                    <ImageButton Source="chosen.png" IsVisible="{Binding IsVisible}" 
+                                        Grid.Row="0"  Grid.Column="1"
+                                        BackgroundColor="Transparent" 
+                                        Aspect="AspectFill" HorizontalOptions="End" VerticalOptions="End"
+                                        Command="{Binding Path=BindingContext.AvaliarMercadoCommand, Source={x:Reference listView}}" 
+                                        CommandParameter="{Binding .}"
+                                     />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

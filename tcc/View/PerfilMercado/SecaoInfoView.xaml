@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.SecaoInfoView" Title="{Binding NomeSecao}">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--BARRA DE BUSCA -->           
+           <SearchBar Placeholder="Pesquise Aqui..." x:Name="BarraDeBusca"
+                   SearchCommand="{Binding BuscaCommand}"
+                   SearchCommandParameter="{Binding Text, Source={x:Reference BarraDeBusca}}"/>
+
+
+            <!--LISTA DA BUSCA -->
+            <ScrollView IsVisible="{Binding IsVisibleListaBusca}">
+                <ListView ItemsSource="{Binding ListaDaBusca}" x:Name="ListaDaBusca" RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="5" Margin="2,5,2,5">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                        Command="{Binding Path=BindingContext.GoProdutoInfoCommand, Source={x:Reference ListaDaBusca}}" 
+                                        CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20*"/>
+                                            <ColumnDefinition Width="80*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="0">
+                                            <Image Source="{Binding imagem}" BackgroundColor="Transparent" Aspect="AspectFit"/>
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                            <Label Text="{Binding nome}" TextColor="{StaticResource AccentColor}"/>
+
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Quantidade: "/>
+                                                <Label Text="{Binding quantidade}"/>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Preço R$"/>
+                                                <Label Text="{Binding preco}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+
+            <!--AVISO LISTA VAZIA -->
+            <Label Text="{Binding}" IsVisible="{Binding IsVisibleAviso}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+            <!--LISTA DE ITENS -->
+            <ScrollView IsVisible="{Binding IsVisibleLista}">
+                <StackLayout>
+
+                    <ListView RowHeight="100" ItemsSource="{Binding ListaDeItens}" x:Name="ListaDeItens" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="5" Margin="2,5,2,5">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer 
+                                            Command="{Binding Path=BindingContext.GoProdutoInfoCommand, Source={x:Reference ListaDeItens}}" 
+                                            CommandParameter="{Binding .}"/>
+                                        </Frame.GestureRecognizers>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20*"/>
+                                                <ColumnDefinition Width="80*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackLayout Grid.Column="0">
+                                                <Image Source="{Binding imagem}" BackgroundColor="Transparent" Aspect="AspectFit"/>
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                                <Label Text="{Binding nome}" TextColor="{StaticResource AccentColor}"/>
+
+                                                <StackLayout Orientation="Horizontal">
+                                                  <Label Text="Quantidade: "/>
+                                                  <Label Text="{Binding quantidade}"/>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal">
+                                                  <Label Text="Preço R$"/>
+                                                   <Label Text="{Binding preco}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

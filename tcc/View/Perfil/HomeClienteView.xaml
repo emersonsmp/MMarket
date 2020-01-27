@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tcc.View.Perfil.HomeClienteView"
+             Title="Home">
+    <ContentPage.Content>
+        <StackLayout Spacing="2">
+
+            <StackLayout BackgroundColor="Yellow" IsVisible="{Binding AvisoConexao}">
+                <Label Text="Sem Conexão" TextColor="Red" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <ScrollView Orientation="Horizontal">
+                <StackLayout x:Name="stackLayout1" Orientation="Horizontal">
+                    <Image Source="aviso3.png"/>
+                    <Image Source="aviso4.png"/>
+                    <Image Source="aviso5.png"/>
+                </StackLayout>
+            </ScrollView>
+
+
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- RASTREAR PEDIDOS -->
+                <StackLayout Grid.Row="0" Grid.Column="0" >
+                    <Frame>
+                        <Image Source="Rastreio.png">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBuscarEntregasCommand}" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+                </StackLayout>
+                <!-- LOCALIZAR MERCADOS -->
+                <StackLayout Grid.Row="0" Grid.Column="1">
+                    <Frame>
+                        <Image Source="FindMercado.jpg">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBuscaMercadosCommand}" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+                </StackLayout>
+                <!-- AVISO 1 -->
+                <StackLayout Grid.Row="1" Grid.Column="0" >
+                    <Frame>
+                        <Image Source="image03.jpg"/>
+                    </Frame>
+                </StackLayout>
+                <!-- AVISO 2 -->
+                <StackLayout Grid.Row="1" Grid.Column="1" >
+                    <Frame>
+                        <Image Source="image04.jpg"/>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

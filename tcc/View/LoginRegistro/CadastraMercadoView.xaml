@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tcc.View.LoginRegistro.CadastraMercadoView"
+             Title="Cadastro De Mercado">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Margin="20" Spacing="20" VerticalOptions="Center">
+            <ScrollView>
+                <StackLayout Spacing="20">
+
+                    <StackLayout>
+                        <Label Text="Olá Empreendedor, Você está a um passo de se juntar a nós" FontSize="20" TextColor="Black"/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Entry Placeholder="Nome" Text="{Binding Mercado.nome }"/>
+                        <Entry Placeholder="CNPJ" Text="{Binding Mercado.cnpj }"/>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                            <Entry Placeholder="Endereço" Text="{Binding Mercado.endereco  }" HorizontalOptions="FillAndExpand" />
+                            <Entry Placeholder="Numero"   Text="{Binding Mercado.Numero_ed }" HorizontalOptions="End" />
+                        </StackLayout>
+
+                        <Entry Placeholder="Email" Text="{Binding Mercado.email }"/>
+                        <Entry Placeholder="Senha" Text="{Binding Mercado.senha }"/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Button Text="Cadastrar" BackgroundColor="Green" Command="{Binding GoCadastroMercadoCommand}"/>
+                        <Button Text="Cancelar Cadastro" BackgroundColor="Red" Command="{Binding BackLoginCommand}"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

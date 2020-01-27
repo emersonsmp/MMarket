@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.Perfil.ModalPagamentoView">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row="0" Margin="20,20,20,10" BackgroundColor="{Binding CorFundoCartao}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpcaoCartaoCommand}"/>
+                    </Frame.GestureRecognizers>
+                    
+                    <StackLayout>
+                        <Label Text="Cartão de Credito" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor ="{StaticResource AccentColor}"/>
+                        
+                        <ImageButton Source="Maquininha.png"
+                         HorizontalOptions="CenterAndExpand" 
+                         VerticalOptions="CenterAndExpand" 
+                         BackgroundColor="Transparent"
+                         HeightRequest="100"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Margin="20,10,20,20" BackgroundColor="{Binding CorFundoDinheiro}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpcaoDinheiroCommand}"/>
+                    </Frame.GestureRecognizers>
+                    
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label Text="Dinheiro" FontSize="Large" FontAttributes="Bold" VerticalOptions="Center" TextColor ="{StaticResource AccentColor}"/>
+                        
+                        <ImageButton Source="Dinheiro.png" HeightRequest="100" BackgroundColor="Transparent"/>
+                        
+                        <Label Text="Precisa de troco?" />
+                        <Entry Text="{Binding troco}" IsVisible="True" Placeholder="20" />
+                    </StackLayout>
+                </Frame>
+
+                <StackLayout HorizontalOptions="CenterAndExpand" Grid.Row="2">
+                    <Label Text="*Pagamento realizado no ato da entrega" 
+                           TextColor="Gray" 
+                           FontSize="Medium" 
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                </StackLayout>
+
+            </Grid>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button Margin="20,0,20,20" Text="CONFIRMAR" Command="{Binding SendMensageCommand}" Style="{ StaticResource PrimaryActionButtonStyle }"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

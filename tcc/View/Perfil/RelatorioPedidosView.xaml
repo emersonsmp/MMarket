@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.Perfil.RelatorioPedidosView"
+             Title="Pedidos Encerrados">
+    <ContentPage.Content>
+        <ScrollView>
+            <ListView ItemsSource="{Binding ListaDePedidos}" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="5" Margin="2,5,2,5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!--ID DO PEDIDO -->
+                                    <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                                        <Label Text="#id "/>
+                                        <Label Text="{Binding id}"/>
+                                    </StackLayout>
+                                    <!--NOME MERCADO -->
+                                    <Label Text="{Binding mercado}" Grid.Row="0" Grid.Column="1"/>
+                                    <!--DATA DO PEDIDO -->
+                                    <Label Text="{Binding data}"    Grid.Row="1" Grid.Column="0"/>
+                                    <!--VALOR DO PEDIDO -->
+                                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                        <Label Text="Total R$" />
+                                        <Label Text="{Binding total}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

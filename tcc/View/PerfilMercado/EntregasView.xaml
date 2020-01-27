@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.EntregasView"
+             Title="Finalizar Entregas">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Aviso}" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding IsVisible}"/>
+
+            <ScrollView Margin="1" BackgroundColor="White">
+                <ListView ItemsSource="{Binding ListaDeEntregas}" x:Name="ListaDeEntregas" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="5" Margin="1,5,1,5" BackgroundColor="AliceBlue">
+                                <Grid x:Name="Pedido">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80*" />
+                                        <ColumnDefinition Width="20*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <!-- ID DO PEDIDO E TOTAL -->
+                                        <StackLayout Orientation="Horizontal" Grid.Row="0">
+                                            <Label Text="Pedido #" FontSize="14"/>
+                                            <Label Text="{Binding idpedido}" FontSize="14"/>
+                                            <Label Text="Total R$ " FontSize="14"/>
+                                            <Label Text="{Binding total}" FontSize="14"/>
+                                        </StackLayout>
+
+                                        <!-- DADOS DO CLIENTE -->
+                                        <StackLayout Orientation="Horizontal" Grid.Row="1">
+                                            <Label Text="{Binding cpf}" FontSize="14" />
+                                            <Label Text="{Binding nome}" FontSize="14"/>
+                                        </StackLayout>
+
+                                        <!--ENDERECO DO CLIENTE -->
+                                        <StackLayout Orientation="Horizontal" Grid.Row="2" >
+                                            <Label Text="{Binding endereco}" FontSize="14"/>
+                                            <Label Text="{Binding numero}" FontSize="14"/>
+                                        </StackLayout>
+                                    </Grid>
+                                    
+                                    <ImageButton BackgroundColor="Transparent" Source="box.png" HorizontalOptions="FillAndExpand" 
+                                       HeightRequest="20" WidthRequest="20" Grid.Column="1" 
+                                       Command="{Binding Path=BindingContext.FinalizaEntregaCommand, Source={x:Reference ListaDeEntregas}}" 
+                                       CommandParameter="{Binding .}"/>
+                                    
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </ScrollView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

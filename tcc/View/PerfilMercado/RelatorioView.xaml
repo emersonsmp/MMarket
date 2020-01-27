@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.RelatorioView"
+             Title="Relatórios">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" Margin="1,5,1,5" BackgroundColor="AliceBlue">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                    <Label Text="{Binding Relatorio.Totalganho}" HorizontalOptions="Center" FontSize="35"/>
+                    <Label Text="Total Ganho" HorizontalOptions="Center" FontSize="25"/>
+            </StackLayout>
+        </Frame>
+
+        <Frame Grid.Row="1" Margin="1,5,1,5" BackgroundColor="AliceBlue">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label Text="{Binding Relatorio.views}" HorizontalOptions="Center" FontSize="35"/>
+                <Label Text="Total de visitas" HorizontalOptions="Center" FontSize="25"/>
+            </StackLayout>
+        </Frame>
+
+        <Frame Grid.Row="2" Margin="1,5,1,5" BackgroundColor="AliceBlue">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoPedidosCommand}"/>
+                </StackLayout.GestureRecognizers>
+                
+                <Label Text="{Binding Relatorio.TotalPedidos}" HorizontalOptions="Center" FontSize="35"/>
+                <Label Text="Pedidos Atendidos" HorizontalOptions="Center" FontSize="25"/>
+            </StackLayout>
+        </Frame>
+    </Grid>
+        
+</ContentPage>

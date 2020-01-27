@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.Perfil.AvaliarMercadoView"
+             Title="{Binding NomeMercado}">
+    
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- CONTAINER DE AVALIAÇÃO DO SUPERMERCADO-->
+            <StackLayout x:Name="Container" Padding="0,50,0,0" Grid.Row="0" IsVisible="True">
+                <Grid x:Name="avaliacao">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--IMAGE BUTONS ESTRELAS-->
+                    <ImageButton WidthRequest="20" HeightRequest="20" Source="EstrelaVazia.png" x:Name="estrela1" Clicked="Estrela0_clicada" Grid.Row="0" Grid.Column="0" 
+                                 Command="{Binding Path=BindingContext.RatingCommand, Source={x:Reference avaliacao}}" CommandParameter="1"/>
+                    <ImageButton WidthRequest="20" HeightRequest="20" Source="EstrelaVazia.png" x:Name="estrela2" Clicked="Estrela1_clicada" Grid.Row="0" Grid.Column="1"
+                                 Command="{Binding Path=BindingContext.RatingCommand, Source={x:Reference avaliacao}}" CommandParameter="2"/>
+                    <ImageButton WidthRequest="20" HeightRequest="20" Source="EstrelaVazia.png" x:Name="estrela3" Clicked="Estrela2_clicada" Grid.Row="0" Grid.Column="2"
+                                 Command="{Binding Path=BindingContext.RatingCommand, Source={x:Reference avaliacao}}" CommandParameter="3"/>
+                    <ImageButton WidthRequest="20" HeightRequest="20" Source="EstrelaVazia.png" x:Name="estrela4" Clicked="Estrela3_clicada" Grid.Row="0" Grid.Column="3"
+                                 Command="{Binding Path=BindingContext.RatingCommand, Source={x:Reference avaliacao}}" CommandParameter="4"/>
+                    <ImageButton WidthRequest="20" HeightRequest="20" Source="EstrelaVazia.png" x:Name="estrela5" Clicked="Estrela4_clicada" Grid.Row="0" Grid.Column="4"
+                                 Command="{Binding Path=BindingContext.RatingCommand, Source={x:Reference avaliacao}}" CommandParameter="5"/>
+                </Grid>
+                <Editor Placeholder="Escreva aqui sua avaliação..." Text="{Binding avaliacao}" MaxLength="120"/>
+                <Button Style="{DynamicResource PrimaryActionButtonStyle}" VerticalOptions="End" Text="Avaliar" Command="{Binding AvaliarMercadoCommand}" Clicked="desaparecer"/>
+            </StackLayout>
+
+            <!--AVISO AO USUARIO -->
+            <Label Text="{Binding aviso}" Grid.Row="1"/>
+            
+            <!-- AVALIÇÕES DE OPUTROS CLIENTES GRID -->
+                <ScrollView Grid.Row="1">
+                <ListView ItemsSource="{Binding ListaDeAvaliacoes}" RowHeight="150" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                <Frame Padding="5" Margin="0,5,0,5">
+                                    <StackLayout x:Name="ListaAvaliacoes" Padding="5,5,5,5">
+                                        <Image Source="{Binding estrela}" WidthRequest="100" HeightRequest="20" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding nome}" FontAttributes="Bold" FontSize="22"/>
+                                        <Label Text="{Binding descricao}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

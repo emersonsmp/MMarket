@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.CuponsView"
+             Title="Meus Cupons">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="90*" />
+        </Grid.RowDefinitions>
+
+        <Button Text="Novo Cupom" Command="{Binding NoVoCupomCommand}" BackgroundColor="ForestGreen" CornerRadius="10" Grid.Row="0"/>
+
+        <ScrollView Margin="1" Grid.Row="1">
+            <ListView ItemsSource="{Binding ListaCuponsView}" ItemSelected="MostraPopUp" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="5" Margin="1,5,1,5" BackgroundColor="Yellow">
+                                <StackLayout>
+                                    <Label Text="{Binding nome}"     FontSize="25" TextColor="Red"/>
+                                    <Label Text="{Binding validade}" FontSize="12"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </Grid>
+</ContentPage>

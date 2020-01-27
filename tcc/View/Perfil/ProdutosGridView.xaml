@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.Perfil.ProdutosGridView"
+             Title="{Binding Titulo}"             >
+
+    <!-- ico da sacola --> 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="sacola.png" Clicked="GoSacola" Order="Primary"  Priority="0"/>
+    </ContentPage.ToolbarItems>
+    
+    <Grid>
+        <StackLayout>
+            <Frame Margin="6,5,6,5" Padding="0" OutlineColor="DarkGray" HasShadow="True" HorizontalOptions="FillAndExpand"  VerticalOptions="Center">
+                <SearchBar Placeholder="Pesquisar item" PlaceholderColor="LightGray" TextColor="#000000" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextChanged="Pesquisar"/>
+            </Frame>
+            
+            <!-- BALAO DE TEXTO -->
+            <StackLayout x:Name="EcommerceProductGridBanner" IsVisible="True"
+                    Style="{StaticResource EcommerceProductGridBannerStyle}" 
+					Padding="0,20,0,0"
+                    Margin="6,5,6,5"      
+			>
+                <!-- LABEL DE BALAO DE TEXTO -->
+                <Label
+						FontSize="20"
+						Text="25% De desconto"
+                        FontAttributes="Bold"
+						HorizontalTextAlignment="Center" 
+						VerticalTextAlignment="Center"
+						TextColor="White" 
+				/>
+
+                <!-- LABEL DE BALAO DE TEXTO -->
+                <Label
+						FontSize="14"
+						Text="Clique para copiar o cupom!" 
+						TextColor="White" 
+						HorizontalTextAlignment="Center" 
+						VerticalTextAlignment="Center"
+                />
+                
+            </StackLayout>
+
+            <!--<Frame Padding="5" Margin="2,2,2,2">
+                <SearchBar TextChanged="Pesquisar"/>
+            </Frame> -->
+            
+
+            <!--<SearchBar Text="" SearchButtonPressed="PesquisarBotao"/> -->
+            
+            <ScrollView>
+                <!-- DEFINICAO GRID DAS COLUNAS  -->
+                <Grid Padding="10" ColumnSpacing="10" >
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!---COLUNA ESQUERDA-->
+                    <StackLayout x:Name="LeftColumn" Grid.Column="0">
+                    </StackLayout>
+
+                    <!-- COLUNA DIREITA-->
+                    <StackLayout x:Name="RightColumn" Grid.Column="1">
+                    </StackLayout>
+
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+
+    </Grid>
+</ContentPage>

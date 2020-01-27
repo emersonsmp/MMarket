@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.TemplateCupom">
+
+    <RelativeLayout>
+        
+        <StackLayout >
+           <Image Source="image22.png"/>
+        </StackLayout>
+
+        <Label Text="SUPER20" TextColor="Red" FontSize="45"
+          RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.26}"  
+          RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.07}"
+        />
+
+        <Label Text="VALIDADE 14/01/20" TextColor="Black" FontAttributes="Bold" FontSize="20"
+          RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.26}"  
+          RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.15}"
+         />
+    </RelativeLayout>
+    
+</ContentView>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tcc.View.LoginRegistro.LoginMercadoView"
+             BackgroundImage="home8.jpg"
+             >
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+
+                <!-- LOGO -->
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Start" Spacing="10" Grid.Row="0">
+                    <Image Source="Logo8.png" VerticalOptions="Start"/>
+                </StackLayout>
+
+                <!-- NOME -->
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" Grid.Row="1">
+                    <Label Text="MMARKET MERCADO" FontSize="Large" TextColor="{StaticResource AccentColor}"/>
+                </StackLayout>
+
+                <!-- FORMULARIO DE LOGIN -->
+                <StackLayout Orientation="Vertical" Grid.Row="2" VerticalOptions="Center">
+
+                    <Entry BackgroundColor="Transparent" Placeholder="Email" PlaceholderColor="Black" Text="{Binding Login.email}"/>
+                    <Entry IsPassword="True" BackgroundColor="Transparent" Placeholder="******" PlaceholderColor="Black" Text="{Binding Login.senha}"/>
+                    <Button Text="Login" BackgroundColor="{StaticResource AccentColor}" Command="{Binding GoLoginCommand}"/>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent">
+
+                        <!-- LABEL CLICAVEL -->
+                        <Label Text="Cadastro" TextColor="Black" FontAttributes="Bold" Font="15">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoCadastroCommand}" NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label Text="|"/>
+
+                        <!-- LABEL CLICAVEL -->
+                        <Label Text="Senha" TextColor="Black" FontAttributes="Bold" Font="15">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoRecuperaSenhaCommand}" NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

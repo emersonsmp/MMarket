@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tcc.App">
+    <Application.Resources>
+
+        <!-- Export AccentColor -->
+        <Color x:Key="AccentColor">#FFDA125F</Color>
+        <!-- Export InverseTextColor -->
+        <Color x:Key="InverseTextColor">White</Color>
+
+        <!-- COLORS -->
+        <Color x:Key="BrandColor">#ad1457</Color>
+        <Color x:Key="BrandColorLight">#ec407a</Color>
+        <Color x:Key="BrandColorLighter">#f06292</Color>
+        <Color x:Key="BrandColorDark">#c2185b</Color>
+        <Color x:Key="BrandColorDarker">#ad1457</Color>
+
+        <!-- BASE COLORS AND UNITS VALUES -->
+        <Color x:Key="BaseTextColor" >#37474f</Color>
+        <x:Double x:Key="BaseFontSize">16</x:Double>
+        <x:Double x:Key="BaseButtonHeight">44</x:Double>
+        <x:Double x:Key="BaseButtonBorderRadius">22</x:Double>
+
+        <!-- COMPLEMENT COLORS -->
+        <Color x:Key="ComplementColor">#384f63</Color>
+        <Color x:Key="ComplementColorDark">#272f36</Color>
+        <Color x:Key="ComplementColorDarker">#1f252a</Color>
+        <Color x:Key="TranslucidBlack">#44000000</Color>
+        <Color x:Key="TranslucidWhite">#22ffffff</Color>
+        <Color x:Key="LabelButtonColor">#ffffff</Color>
+
+        <!-- ECOMMERCE -->
+        <Style x:Key="EcommerceProductGridBannerStyle" TargetType="StackLayout">
+            <Setter Property="HeightRequest" Value="120" />
+            <Setter Property="BackgroundColor" Value="{StaticResource BrandColorDarker}" />
+        </Style>
+
+        <Style x:Key="Horizontal1ptLineStyle" TargetType="BoxView">
+            <Setter Property="HeightRequest" Value="1"/>
+            <Setter Property="BackgroundColor" Value="#eee" />
+        </Style>
+
+        <!-- LOGINS STYLES -->
+        <Style x:Key="PrimaryActionButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}"/>
+            <Setter Property="TextColor" Value="{StaticResource LabelButtonColor}"/>
+            <Setter Property="HeightRequest" Value="{StaticResource BaseButtonHeight}"/>
+        </Style>
+
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="{StaticResource BaseFontSize}" />
+            <Setter Property="BorderRadius" Value="22" />
+            <Setter Property="HeightRequest" Value="{StaticResource BaseButtonHeight}"/>
+        </Style>
+
+    </Application.Resources>
+</Application>

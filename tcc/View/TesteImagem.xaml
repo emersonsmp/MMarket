@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+            
+             mc:Ignorable="d"
+             x:Class="tcc.View.TesteImagem">
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Always" Orientation="Vertical">
+            <StackLayout>
+                
+                <StackLayout>
+                    <ff:CachedImage                                                
+                        Source="https://ganhemais.site/api/produtos/7891193010012.png"
+                        CacheDuration="7">
+                    </ff:CachedImage>
+                </StackLayout>
+
+                <StackLayout>
+                    <ff:CachedImage 
+                        Source="https://ganhemais.site/api/produtos/7896074600696.png"
+                        CacheDuration="7">
+                    </ff:CachedImage>
+                </StackLayout>
+
+                <StackLayout>
+                    <ff:CachedImage 
+                        Source="https://ganhemais.site/api/produtos/7898084090092.png"
+                        CacheDuration="7">
+                    </ff:CachedImage>
+                </StackLayout>
+
+                <StackLayout>
+                    <ff:CachedImage 
+                        Source="https://ganhemais.site/api/produtos/7896006711155.jpg"
+                        CacheDuration="7">
+                    </ff:CachedImage>
+                </StackLayout>
+
+                <StackLayout>
+                    <ff:CachedImage 
+                        Source="https://ganhemais.site/api/produtos/7891000023020.jpg"
+                        CacheDuration="7">
+                    </ff:CachedImage>
+                </StackLayout>
+
+                <StackLayout>
+                    <ff:CachedImage 
+                        Source="https://ganhemais.site/api/produtos/7891000100103.jpg"
+                        CacheDuration="7">
+                    </ff:CachedImage>
+                </StackLayout>
+
+                <StackLayout>
+                    <ff:CachedImage 
+                        Source="https://ganhemais.site/api/produtos/7891024194003.jpg"
+                        CacheDuration="7">
+                    </ff:CachedImage>
+                </StackLayout>
+
+                <StackLayout>
+                    <ff:CachedImage 
+                        Source="https://ganhemais.site/api/produtos/7891025103134.jpg"
+                        CacheDuration="7">
+                    </ff:CachedImage>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

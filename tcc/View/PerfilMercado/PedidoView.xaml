@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.PedidoView"
+             Title="Pedido">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+
+        <!--CONTAINER DE DADOS-->
+        <StackLayout Spacing="2" Orientation="Vertical" Grid.Row="0" Margin="0" BackgroundColor="#FFDA125F">
+            <StackLayout Margin="5">
+                <!-- NUMERO PEDIDO-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Pedido: " FontSize="22"/>
+                <Label Text="{Binding idpedido}" FontSize="22"/>
+            </StackLayout>
+            <!-- NOME CLIENTE -->
+            <Label Text="{Binding cliente.nomeCliente}" FontSize="22"/>
+            <!-- ENDEREÇO     -->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding cliente.endereco}" FontSize="22"/>
+                <Label Text=", " FontSize="22"/>
+                <Label Text="{Binding cliente.num}" FontSize="22"/>
+            </StackLayout>
+        </StackLayout>
+        </StackLayout>
+        
+        <!-- CONTAINER LISTA DE ITENS SOLICITADOS -->
+        <ScrollView Grid.Row="1">
+            <ListView ItemsSource="{Binding ListViewProdutos}" RowHeight="80">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="5" Margin="5,5,5,5">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding cod_barra}"/>
+                                    <Label Text="{Binding nomeProduto}"/>
+                                    <Label Text=" x "/>
+                                    <Label Text="{Binding quantidade}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <!-- BOTAO SAIR PARA ENTREGA-->
+        <Grid Grid.Row="2" VerticalOptions="End" Margin="5">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Orientation="Horizontal" Grid.Row="0" HorizontalOptions="CenterAndExpand">
+                <Label Text="TOTAL..................." FontSize="25"/>
+                <Label Text="{Binding total}" FontSize="25"/>
+            </StackLayout>
+
+            <Button Command="{Binding GoEntregaCommand}" Text="Sair Para Entrega"
+             Style="{DynamicResource PrimaryActionButtonStyle}" Grid.Row="1"/>
+        </Grid>
+    </Grid>
+
+</ContentPage>

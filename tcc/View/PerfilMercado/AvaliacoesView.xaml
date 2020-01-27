@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.AvaliacoesView"
+             Title="Minhas Avaliações">
+    <ContentPage.Content>
+        <Grid Margin="10" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- AVALIAÇÃO DO SUPERMERCADO-->
+            <StackLayout x:Name="Container" Padding="0,50,0,0" Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Text="Minhas Estrelas" FontSize="25" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Image Source="{Binding rating}" WidthRequest="100" HeightRequest="20" Grid.Row="1" HorizontalOptions="Center"/>
+                </Grid>
+            </StackLayout>
+            
+            <!--AVISO -->
+            <Label Text="{Binding aviso}" Grid.Column="0"/>
+            
+            <!-- AVALIÇÕES DE CLIENTES GRID -->
+            <ScrollView Grid.Row="1">
+                <ListView ItemsSource="{Binding ListaDeAvaliacoes}" RowHeight="150" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="5" Margin="0,5,0,5">
+                                    <StackLayout x:Name="ListaAvaliacoes" Padding="5,5,5,5">
+                                        <Image Source="{Binding estrela}" WidthRequest="100" HeightRequest="20" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding nome}" FontAttributes="Bold" FontSize="22"/>
+                                        <Label Text="{Binding descricao}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

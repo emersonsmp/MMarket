@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tcc.View.LoginRegistro.CadastraClienteView"
+             Title="Cadastro De Cliente">
+    
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" Margin="20" Spacing="20" VerticalOptions="Center">
+            <ScrollView>
+                <StackLayout Spacing="20">
+
+                    <StackLayout>
+                        <Label Text="Olá consumidor, Você está a um passo de se juntar a nós" FontSize="20" TextColor="Black"/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Entry Placeholder="Nome" Text="{Binding Usuario.nome }"/>
+                        <Entry Placeholder="Sobrenome" Text="{Binding Usuario.sobrenome}"/>
+                        <Entry Placeholder="CPF" Text="{Binding Usuario.cpf}"/>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                            <Entry Placeholder="Endereço" Text="{Binding Usuario.endereco}" HorizontalOptions="FillAndExpand" />
+                            <Entry Placeholder="Numero"   Text="{Binding Usuario.numero}" HorizontalOptions="End" />
+                        </StackLayout>
+
+                        <Entry Placeholder="Email" Text="{Binding Usuario.email}"/>
+                        <Entry Placeholder="Senha" Text="{Binding Usuario.senha}"/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Button Text="Cadastrar" BackgroundColor="Green" Command="{Binding GoCadastrarCommand}"/>
+                        <Button Text="Cancelar Cadastro" BackgroundColor="Red" Command="{Binding BackToLoginCommand}"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </ScrollView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

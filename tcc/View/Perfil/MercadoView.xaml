@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.Perfil.MercadoView"
+             Title="{Binding nome}">
+    
+    <!-- ico da sacola -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="sacola.png" Command="{Binding GoSacolaCommand}"  Order="Primary"  Priority="0"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="80*"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout  BackgroundColor="White" Orientation="Horizontal" Grid.Row="0">
+
+                    <Image WidthRequest="370" Aspect="Fill">
+                        <Image.Source>
+                            <UriImageSource Uri="{Binding BannerMercado}" CacheValidity="14" CachingEnabled="true"/>
+                        </Image.Source>
+                    </Image>
+
+                </StackLayout>
+
+                <ScrollView Grid.Row="1">
+                    <Grid ColumnSpacing="5" RowSpacing="5" Margin="1">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="190"/>
+                            <RowDefinition Height="190"/>
+                            <RowDefinition Height="190"/>
+                            <RowDefinition Height="190"/>
+                            <RowDefinition Height="190"/>
+                        </Grid.RowDefinitions>
+
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <ImageButton Command="{Binding GoCestaCommand}"  Source="setor1.jpg" Grid.Column="0" Grid.Row="0"/>
+                        <ImageButton Command="{Binding GopadariaCommand}"  Source="setor2.jpg" Grid.Column="1" Grid.Row="0"/>
+
+                        <ImageButton Command="{Binding GoAcougueCommand}" Source="setor3.jpg" Grid.Column="0" Grid.Row="1"/>
+                        <ImageButton Command="{Binding GoHortFrut}" Source="setor4.jpg" Grid.Column="1" Grid.Row="1"/>
+
+                        <ImageButton Command="{Binding GoLatCommand}" Source="setor5.jpg" Grid.Column="0" Grid.Row="2"/>
+                        <ImageButton Command="{Binding GoBebCommand}" Source="setor6.jpg" Grid.Column="1" Grid.Row="2"/>
+
+                        <ImageButton Command="{Binding GoHigCommand}" Source="setor7.jpg" Grid.Column="0" Grid.Row="3"/>
+                        <ImageButton Command="{Binding GoLimpCommand}" Source="setor8.jpg" Grid.Column="1" Grid.Row="3"/>
+
+                        <ImageButton Command="{Binding GoPetCommand}" Source="setor9.jpg" Grid.Column="0"  Grid.Row="4"/>
+                        <ImageButton Command="{Binding GoJardCommand}" Source="setor10.jpg" Grid.Column="1" Grid.Row="4"/>
+
+                    </Grid>
+                </ScrollView>
+
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.CadastrarCupomView" 
+             Title="Cadastrar Cupom">
+
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Margin="10">
+
+            <StackLayout HorizontalOptions="Start" Margin="10">
+                <Label Text="Cadastrar Cupom" TextColor="Red" FontAttributes="Bold" FontSize="22"/>
+            </StackLayout>
+
+            <Entry Placeholder="Nome" Text="{Binding cupon.nome}" />
+            <!--<Entry Placeholder="Validade" Text="{Binding cupon.validade}" /> -->
+            <DatePicker d:Date="{Binding cupon.validade}" MinimumDate="12/30/2019" MaximumDate="12/31/2020" Date="06/21/2018" />
+            <Entry Placeholder="Porcentagem" Text="{Binding cupon.percent}" />
+
+            <Label Text="Setor:"/>
+            <Picker SelectedIndex="{Binding NumeroPicker}"
+                    Title="Aplique o Cupom para:"
+                    TitleColor="Red">
+
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Todas as sessões</x:String>
+                        <x:String>Açougue</x:String>
+                        <x:String>Cesta Basica</x:String>
+                        <x:String>Padaria</x:String>
+                        <x:String>HortiFruti</x:String>
+                        <x:String>Limpesa</x:String>
+                        <x:String>Higiene e beleza</x:String>
+                        <x:String>Casa e Jardim</x:String>
+                        <x:String>Petshop</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+
+            <StackLayout>
+                <Button Text="CADASTRAR" BackgroundColor="Green" Command="{Binding CadastrarCupomCommand}"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

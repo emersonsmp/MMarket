@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.RelatorioDeProdutosView" Title="Seções">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="1" x:Name="Secoes">
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="Cesta Básica"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Cesta Básica" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="Padaria"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Padaria" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="Açougue"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Açougue" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="Latcínios"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Latcinios" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="HortiFruti"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="HortiFruti" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="Bebidas"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Bebidas" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="Higiene"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Higiene" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="Limpeza"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Limpeza" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="Petshop"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Petshop" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Padding="5" Margin="2,5,2,5" HeightRequest="50" BackgroundColor="AliceBlue">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Path=BindingContext.GoSecaoCommand, Source={x:Reference Secoes}}" 
+                                CommandParameter="Jardinagem"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Jardinagem" FontSize="25"/>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

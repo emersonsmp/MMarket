@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tcc.View.PerfilMercado.EditarContaView"
+             Title="Minha Conta">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                <Label Text="EDITAR INFORMAÇÕES" FontSize="22"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Vertical" Margin="20" Spacing="20" VerticalOptions="Center">
+                <ScrollView>
+                    <StackLayout Spacing="20">
+                        <StackLayout>
+                            <Entry Text="{Binding User.nome }"/>
+                            <Entry Text="{Binding User.cnpj}" IsEnabled="False"/>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                                <Entry Text="{Binding User.endereco}" HorizontalOptions="FillAndExpand" />
+                                <Entry Text="{Binding User.numero_ed}" HorizontalOptions="End" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                                <Entry Text="{Binding User.loc_lat}" />
+                                <Entry Text="{Binding User.loc_lng}" />
+                            </StackLayout>
+
+                            <Entry Text="{Binding User.email}"/>
+                            <Entry Text="{Binding User.senha}" IsPassword="True"/>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Entry Placeholder="Senha atual" IsPassword="True" Text="{Binding Senha}" FontSize="15"/>
+                            <Button Text="ALTERAR" BackgroundColor="Green" Command="{Binding AlterarCommand}"/>
+                            <Button Text="EXCLUIR CONTA" BackgroundColor="Red" Command="{Binding ExcluirContaCommand}"/>
+                        </StackLayout>
+                        
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
